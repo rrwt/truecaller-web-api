@@ -7,19 +7,26 @@
     {% block title %}
     {% endblock title %}
     {% block static %}
-    <link rel="stylesheet" href="{% static "css/base.css" %}">
+        <link rel="stylesheet" href="{% static "css/base.css" %}">
     {% endblock static %}
 </head>
 
 <body>
-    <header>
-        {% block header %}
-        {% endblock header %}
-    </header>
-    <main>
-        {% block main %}
-        {% endblock main %}
-    </main>
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<header>
+    {% block header %}
+    {% endblock header %}
+</header>
+<main>
+    {% block main %}
+    {% endblock main %}
+</main>
 </body>
 
 </html>

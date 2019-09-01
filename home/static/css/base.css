@@ -25,6 +25,12 @@ form {
     justify-content: space-around;
 }
 
+#phone-number {
+    height: 30px;
+    width: 250px;
+    border-radius: 1px;
+}
+
 table {
     border: 2px solid black;
 }
@@ -36,4 +42,10 @@ th, td{
 }
 th {
     border-bottom: 1px dotted brown;
+}
+
+.error {
+    list-style: none;
+    display: block;
+    background-color: red;
 }

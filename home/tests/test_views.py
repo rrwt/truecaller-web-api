@@ -1,6 +1,5 @@
 from django.test import TestCase
 from django.urls import resolve
-from django.template.loader import render_to_string
 
 from home.views import home_page
 
@@ -22,6 +21,7 @@ class HomePageTest(TestCase):
         response = self.client.get("/")
         self.assertTemplateUsed(response, "home.html")
 
-    def test_can_save_a_post_request(self):
-        response = self.client.post("/", data={"phone_number": "5215544975736"})
-        self.assertIn("requestId", response.content.decode())
+    def test_display_error_message_on_post_failure(self):
+        response = self.client.post("/", data={"phone_number": "55555555"})
+        html = response.content.decode("utf8")
+        self.assertIn("Forbidden: It is forbidden to use sdk login for this phone number.", html)

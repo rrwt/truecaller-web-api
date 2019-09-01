@@ -15,4 +15,5 @@ A web api to connect to truecaller and fetch user information
 
 ## Local Execution
 1. Activate virtualenv
-2. Run python manage.py runserver
+2. Add environment variables - DEBUG, SECRET_KEY and API_KEY
+3. Run python manage.py runserver
