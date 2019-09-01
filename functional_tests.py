@@ -21,12 +21,14 @@ class NewVisitorTest(unittest.TestCase):
         header_text = self.browser.find_element_by_tag_name("h1").text
         self.assertIn("Truecaller User Profiler", header_text)
 
-        inputbox = self.browser.find_element_by_id("phone_number")
+        inputbox = self.browser.find_element_by_id("phone-number")
+        time.sleep(1)
         self.assertEqual(
             inputbox.get_attribute("placeholder"),
             "Enter a phone number for verification",
         )
         inputbox.send_keys("5215544975736")
+        time.sleep(2)
         inputbox.send_keys(Keys.ENTER)
         self.fail("Failed")
 
