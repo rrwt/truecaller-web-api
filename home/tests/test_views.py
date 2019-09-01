@@ -13,13 +13,15 @@ class HomePageTest(TestCase):
     def test_home_page_returns_correct_html(self):
         response = self.client.get("/")
         html = response.content.decode("utf8")
-        expected_html = render_to_string("home.html")
 
         self.assertIn("<html>", html)
         self.assertIn("<title>Truecaller</title>", html)
         self.assertTrue(html.endswith("</html>"))
-        self.assertEqual(html, expected_html)
 
     def test_home_url_uses_home_template(self):
         response = self.client.get("/")
         self.assertTemplateUsed(response, "home.html")
+
+    def test_can_save_a_post_request(self):
+        response = self.client.post("/", data={"phone_number": "5215544975736"})
+        self.assertIn("requestId", response.content.decode())

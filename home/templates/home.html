@@ -1,19 +1,40 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <title>Truecaller</title>
-</head>
+{% block title %}
+<title>Truecaller</title>
+{% endblock title %}
 
-<body>
-    <header>
-        <h1>Truecaller User Profiler</h1>
-    </header>
-    <main>
-        <form>
-            <input id="phone-number" type="tel" placeholder="Enter a phone number for verification">
-        </form>
-    </main>
-</body>
+{% block header %}
+<h1>Truecaller User Profiler</h1>
+{% endblock header %}
 
-</html>
+{% block main %}
+<section>
+    <form method="POST">
+        <input
+            name="phone_number"
+            id="phone-number"
+            placeholder="Enter a phone number for verification"
+        />
+        {% csrf_token %}
+    </form>
+</section>
+<section>
+    <table id="user-detail-table">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Country</th>
+            <th>Gender</th>
+            <th>Other Name</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</section>
+{% endblock main %}

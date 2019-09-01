@@ -30,7 +30,12 @@ class NewVisitorTest(unittest.TestCase):
         inputbox.send_keys("5215544975736")
         time.sleep(2)
         inputbox.send_keys(Keys.ENTER)
-        self.fail("Failed")
+
+        table = self.browser.find_element_by_id("user-detail-table")
+        rows = table.find_elements_by_tag_name("tr")
+        self.assertTrue(any(row.text == "Name" for row in rows))
+
+        self.fail("Finish the test!")
 
 
 if __name__ == "__main__":
