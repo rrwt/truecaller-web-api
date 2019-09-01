@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Truecaller</title>
+{% endblock title %}
+
+{% block header %}
+<h1>Truecaller User Profiler</h1>
+{% endblock header %}
+
+{% block main %}
+<section>
+    <form method="POST">
+        <input
+            name="phone_number"
+            id="phone-number"
+            type="tel"
+            placeholder="Enter a phone number for verification"
+        />
+        <input type="submit" value="Submit">
+        {% csrf_token %}
+    </form>
+</section>
+    {% if has_table_data %}
+        <section>
+            <table id="user-detail-table">
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Country</th>
+                    <th>Gender</th>
+                    <th>Other Name</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </section>
+    {% endif %}
+{% endblock main %}

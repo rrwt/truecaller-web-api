@@ -1,0 +1,51 @@
+body {
+    background-color: antiquewhite;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+header, main {
+    display: block;
+    text-align: center;
+}
+
+main {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    margin: 30px auto;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#phone-number {
+    height: 30px;
+    width: 250px;
+    border-radius: 1px;
+}
+
+table {
+    border: 2px solid black;
+}
+
+th, td{
+    width: 90px;
+    height: 30px;
+    border-right: 1px dotted brown;
+}
+th {
+    border-bottom: 1px dotted brown;
+}
+
+.error {
+    list-style: none;
+    display: block;
+    background-color: red;
+}
